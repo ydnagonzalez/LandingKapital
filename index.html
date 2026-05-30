@@ -1538,12 +1538,7 @@ function showTab(id, btn) {
     cal.innerHTML = html;
   }
 
-  window.cambiarMes = function(dir){
-    mes += dir;
-    if(mes > 11){ mes=0; anio++; }
-    if(mes < 0){ mes=11; anio--; }
-    render();
-  };
+  window.cambiarMes = function(dir);
 
   window.elegirDia = function(key, d){
     selDia = key; selHora = null;
