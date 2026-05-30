@@ -1499,11 +1499,12 @@ function showTab(id, btn) {
   const cal = document.getElementById('calendario');
   const horariosWrap = document.getElementById('horarios-wrap');
   const horariosDiv = document.getElementById('horarios');
-  const horas = ['09:00','10:00','11:00','14:00','15:00','16:00','17:00'];
+  const horas = ['09:00','10:00','11:00','14:00','15:00','16:00','17:00','18:00'];
   let selDia = null, selHora = null;
 
   const hoy = new Date();
-  let mes = hoy.getMonth(), anio = hoy.getFullYear();
+  let mes = hoy.getMonth();
+  let anio = hoy.getFullYear();
 
   const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
@@ -1511,41 +1512,61 @@ function showTab(id, btn) {
     const primerDia = new Date(anio, mes, 1).getDay();
     const diasMes = new Date(anio, mes+1, 0).getDate();
     const offset = primerDia === 0 ? 6 : primerDia - 1;
+    const fechaHoy = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
 
     let html = `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-      <button onclick="cambiarMes(-1)" style="background:none;border:none;color:#6a84a8;font-size:18px;cursor:pointer;padding:4px 8px;">‹</button>
+      <button onclick="cambiarMes(-1)" style="background:rgba(255,255,255,0.08);border:none;color:#8aa4c8;font-size:18px;cursor:pointer;padding:4px 12px;border-radius:6px;">‹</button>
       <span style="font-size:13px;font-weight:600;color:#fff;">${meses[mes]} ${anio}</span>
-      <button onclick="cambiarMes(1)" style="background:none;border:none;color:#6a84a8;font-size:18px;cursor:pointer;padding:4px 8px;">›</button>
+      <button onclick="cambiarMes(1)" style="background:rgba(255,255,255,0.08);border:none;color:#8aa4c8;font-size:18px;cursor:pointer;padding:4px 12px;border-radius:6px;">›</button>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;">
-      ${['L','M','X','J','V','S','D'].map(d=>`<span style="font-size:9px;color:#3a5270;padding:4px 0;">${d}</span>`).join('')}`;
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;">
+      ${['L','M','X','J','V','S','D'].map(d=>`<span style="font-size:10px;color:#3a5270;padding:4px 0;font-weight:600;">${d}</span>`).join('')}`;
 
     for(let i=0;i<offset;i++) html += `<span></span>`;
 
     for(let d=1;d<=diasMes;d++){
       const fecha = new Date(anio, mes, d);
-      const pasado = fecha < new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
-      const finde = fecha.getDay()===0 || fecha.getDay()===6;
+      const pasado = fecha < fechaHoy;
       const key = `${anio}-${mes}-${d}`;
       const activo = selDia === key;
-      const color = activo ? '#4a9ede' : (pasado||finde ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.08)');
-      const textColor = activo ? '#fff' : (pasado||finde ? '#2a3d5a' : '#8aa4c8');
-      const cursor = (!pasado && !finde) ? 'pointer' : 'default';
-      html += `<span onclick="${(!pasado&&!finde)?`elegirDia('${key}',${d})`:''}()" style="padding:6px 2px;border-radius:6px;font-size:11px;background:${color};color:${textColor};cursor:${cursor};transition:background 0.15s;">${d}</span>`;
+
+      let bg, textColor, cursor, onclick;
+      if(activo){
+        bg='#4a9ede'; textColor='#fff'; cursor='pointer';
+        onclick=`elegirDia('${key}',${d})`;
+      } else if(pasado){
+        bg='rgba(255,255,255,0.03)'; textColor='#2a3d5a'; cursor='default';
+        onclick='';
+      } else {
+        bg='rgba(255,255,255,0.08)'; textColor='#8aa4c8'; cursor='pointer';
+        onclick=`elegirDia('${key}',${d})`;
+      }
+
+      html += `<span onclick="${onclick}" style="padding:7px 2px;border-radius:6px;font-size:12px;background:${bg};color:${textColor};cursor:${cursor};font-weight:${activo?'600':'400'};">${d}</span>`;
     }
 
     html += `</div>`;
     cal.innerHTML = html;
   }
 
-  window.cambiarMes = function(dir);
+  window.cambiarMes = function(dir){
+    mes += dir;
+    if(mes > 11){ mes=0; anio++; }
+    if(mes < 0){ mes=11; anio--; }
+    const mesActual = hoy.getMonth();
+    const anioActual = hoy.getFullYear();
+    if(anio < anioActual || (anio === anioActual && mes < mesActual)){
+      mes = mesActual; anio = anioActual;
+    }
+    render();
+  };
 
   window.elegirDia = function(key, d){
     selDia = key; selHora = null;
     render();
     horariosWrap.style.display = 'block';
     horariosDiv.innerHTML = horas.map(h =>
-      `<button onclick="elegirHora('${h}',this)" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:#8aa4c8;font-size:13px;cursor:pointer;transition:all 0.15s;">${h}</button>`
+      `<button onclick="elegirHora('${h}',this)" style="padding:9px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:#8aa4c8;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;">${h}</button>`
     ).join('');
   };
 
@@ -1567,7 +1588,7 @@ function showTab(id, btn) {
       return;
     }
     const [a,m,d] = selDia.split('-');
-    const msg = encodeURIComponent(`Hola, quiero agendar una demo de Sistema Kapital el ${d} de ${meses[parseInt(m)]} a las ${selHora}.`);
+    const msg = encodeURIComponent(`Hola, quiero agendar una demo de Sistema Kapital el ${d} de ${meses[parseInt(m)]} a las ${selHora}. Quedo atento.`);
     window.open(`https://wa.me/593984000444?text=${msg}`, '_blank');
   });
 
