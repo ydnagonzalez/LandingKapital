@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sistema Kapital - ERP WEB líder en Ecuador. Más de 1,250 empresas confían en nosotros. Agenda tu demo gratuita hoy.">
+<title>Sistema Kapital | ERP WEB para tu empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --azul-oscuro: #0d1b3e;
+    --azul-medio: #1a2744;
+    --azul-acento: #4a9ede;
+    --azul-claro: #85b7eb;
+    --gris-texto: #6a84a8;
+    --gris-linea: rgba(255,255,255,0.08);
+    --blanco: #ffffff;
+    --fondo-claro: #f5f7fa;
+    --texto-oscuro: #111827;
+    --texto-gris: #6b7280;
+    --borde: #e5e7eb;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--texto-oscuro);
+    background: #fff;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,27,62,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--azul-acento); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--gris-texto);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: #fff; }
+
+  .nav-cta {
+    background: var(--azul-acento);
+    color: #fff !important;
+    padding: 9px 22px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: #3a8ecf !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(145deg, #0d1b3e 0%, #111f45 50%, #0a1530 100%);
+    padding: 140px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(74,158,222,0.08) 0%, transparent 70%);
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(74,158,222,0.12);
+    color: var(--azul-claro);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(74,158,222,0.25);
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 span { color: var(--azul-acento); }
+
+  .hero p {
+    font-size: 17px;
+    color: var(--gris-texto);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+
+  .btn-primary {
+    background: var(--azul-acento);
+    color: #fff;
+    padding: 15px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-primary:hover { background: #3a8ecf; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 15px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.5); transform: translateY(-1px); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    overflow: hidden;
+    max-width: 760px;
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .stat-item {
+    background: rgba(255,255,255,0.03);
+    padding: 28px 16px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    display: block;
+  }
+
+  .stat-lbl {
+    font-size: 12px;
+    color: var(--gris-texto);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── SECCIONES GENERALES ── */
+  section { padding: 80px 40px; }
+  .section-center { text-align: center; }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--azul-acento);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  section h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+    margin-bottom: 12px;
+  }
+
+  section p.sub {
+    font-size: 16px;
+    color: var(--texto-gris);
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .bg-gris { background: var(--fondo-claro); }
+
+  /* ── BENEFICIOS ── */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 28px 24px;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-2px); }
+
+  .card-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: rgba(74,158,222,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .card-icon svg { width: 22px; height: 22px; stroke: var(--azul-acento); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+    margin-bottom: 8px;
+  }
+
+  .card p { font-size: 14px; color: var(--texto-gris); line-height: 1.65; }
+
+  /* ── MÓDULOS ── */
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .modulo {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.2s;
+  }
+
+  .modulo:hover { border-color: var(--azul-acento); }
+
+  .modulo svg { width: 20px; height: 20px; stroke: var(--azul-acento); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  .modulo span { font-size: 13px; font-weight: 500; color: var(--texto-oscuro); }
+
+  /* ── DASHBOARD VISUAL ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .col-text .tag { margin-bottom: 12px; }
+  .col-text h2 { text-align: left; margin-bottom: 16px; }
+  .col-text p { font-size: 15px; color: var(--texto-gris); line-height: 1.7; margin-bottom: 24px; text-align: left; }
+
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+  .check-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--texto-oscuro);
+  }
+
+  .check-list li::before {
+    content: '';
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(74,158,222,0.12);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a9ede' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+  }
+
+  .dashboard-visual {
+    background: linear-gradient(145deg, #0d1b3e, #162040);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .dash-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 18px;
+  }
+
+  .dash-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.12); }
+
+  .dash-metrics {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .dash-metric {
+    background: rgba(74,158,222,0.1);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgba(74,158,222,0.15);
+  }
+
+  .dash-metric-v { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 600; color: #85b7eb; display: block; }
+  .dash-metric-l { font-size: 10px; color: #5a7499; margin-top: 3px; display: block; }
+
+  .dash-bars { display: flex; flex-direction: column; gap: 8px; }
+  .dash-bar-row { display: flex; align-items: center; gap: 10px; }
+  .dash-bar-label { font-size: 10px; color: #5a7499; width: 70px; flex-shrink: 0; }
+  .dash-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+  .dash-bar-fill { height: 100%; border-radius: 4px; background: var(--azul-acento); }
+  .dash-bar-val { font-size: 10px; color: #6a84a8; width: 36px; text-align: right; }
+
+  /* ── SECTORES ── */
+  .grid-sectores {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .sector-card {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .sector-card:hover { border-color: var(--azul-acento); box-shadow: 0 4px 16px rgba(74,158,222,0.08); }
+
+  .sector-ico {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: rgba(74,158,222,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sector-ico svg { width: 20px; height: 20px; stroke: var(--azul-acento); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .sector-info h4 { font-size: 13px; font-weight: 600; color: var(--texto-oscuro); }
+  .sector-info p { font-size: 11px; color: var(--texto-gris); margin-top: 2px; }
+
+  /* ── FORMULARIO ── */
+  .form-section {
+    background: linear-gradient(145deg, #0d1b3e 0%, #0a1530 100%);
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .form-section h2 { color: #fff; font-size: 32px; margin-bottom: 10px; }
+  .form-section > p { color: var(--gris-texto); font-size: 16px; margin-bottom: 40px; }
+
+  .form-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 40px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .form-row { margin-bottom: 18px; text-align: left; }
+
+  .form-row label {
+    display: block;
+    font-size: 12px;
+    color: var(--gris-texto);
+    margin-bottom: 7px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9px;
+    padding: 13px 16px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .form-row input::placeholder,
+  .form-row textarea::placeholder { color: #3a5270; }
+
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus { border-color: var(--azul-acento); }
+
+  .form-row select option { background: #1a2744; color: #fff; }
+
+  .form-row textarea { min-height: 80px; resize: vertical; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--azul-acento);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Sora', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .form-submit:hover { background: #3a8ecf; transform: translateY(-1px); }
+
+  .form-note {
+    font-size: 12px;
+    color: #3a5270;
+    margin-top: 14px;
+    display: block;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060e20;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  footer p { font-size: 12px; color: #2a3d5a; }
+
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-size: 12px; color: #2a3d5a; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gris-texto); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-btn {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 200;
+    background: #25d366;
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+
+  .wa-btn:hover { transform: scale(1.08); }
+
+  .wa-btn svg { width: 28px; height: 28px; fill: #fff; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .hero h1 { font-size: 32px; }
+    .hero-stats { grid-template-columns: repeat(2,1fr); }
+    section { padding: 60px 20px; }
+    .grid-3, .grid-4, .grid-sectores, .two-col { grid-template-columns: 1fr 1fr; }
+    .two-col { gap: 32px; }
+    .form-box { padding: 28px 20px; }
+    footer { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats, .grid-3, .grid-4, .grid-sectores { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 28px; }
+    .hero-btns { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVEGACIÓN -->
+<nav>
+  <a href="#" class="nav-logo">SISTEMA <span>KAPITAL</span></a>
+  <ul class="nav-links">
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#modulos">Módulos</a></li>
+    <li><a href="#sectores">Sectores</a></li>
+    <li><a href="#demo" class="nav-cta">Agendar demo</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">ERP WEB · HECHO EN ECUADOR</div>
+  <h1>Gestiona tu empresa<br>con <span>inteligencia real</span></h1>
+  <p>Sistema Kapital es el ERP WEB más completo del país. Se adapta a tu negocio — sin importar el sector — y lo tienes disponible desde cualquier lugar.</p>
+  <div class="hero-btns">
+    <a href="#demo" class="btn-primary">Agendar demo gratuita →</a>
+    <a href="#modulos" class="btn-secondary">Ver módulos</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">1,250+</span>
+      <span class="stat-lbl">Clientes activos</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">10+</span>
+      <span class="stat-lbl">Años en el mercado</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">∞</span>
+      <span class="stat-lbl">Actualizaciones incluidas</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4</span>
+      <span class="stat-lbl">Sectores cubiertos</span>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<style>
+  .propuesta {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .propuesta-titulo {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .propuesta-titulo h2 { font-size: 36px; font-weight: 600; color: var(--texto-oscuro); line-height: 1.2; margin-bottom: 0; }
+  .propuesta-titulo h2 span { color: var(--azul-acento); }
+
+  .pilares {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .pilar {
+    padding: 32px 24px;
+    border-right: 1px solid var(--borde);
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .pilar:last-child { border-right: none; }
+  .pilar:hover { background: var(--fondo-claro); }
+
+  .pilar-num {
+    font-family: 'Sora', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--azul-acento);
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .pilar-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .pilar-desc {
+    font-size: 12px;
+    color: var(--texto-gris);
+    line-height: 1.5;
+  }
+
+  .promesas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .promesa {
+    background: var(--fondo-claro);
+    border-radius: 12px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .promesa-ico {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(74,158,222,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .promesa-ico svg { width: 18px; height: 18px; stroke: var(--azul-acento); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  .promesa-texto strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+    margin-bottom: 3px;
+  }
+  .promesa-texto span { font-size: 12px; color: var(--texto-gris); line-height: 1.5; }
+</style>
+
+<section id="beneficios">
+  <div class="propuesta">
+    <div class="propuesta-titulo">
+      <span class="tag">¿POR QUÉ ELEGIRNOS?</span>
+      <h2>El sistema que <span>crece contigo</span></h2>
+    </div>
+
+    <style>
+      /* CASOS ANTES/AHORA */
+      .casos-v2 {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+      .caso-v2 {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--borde);
+      }
+      .caso-v2-antes {
+        background: #fff5f5;
+        padding: 20px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        border-bottom: 1px solid #fecaca;
+      }
+      .caso-v2-ico-antes {
+        font-size: 28px;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .caso-v2-label-antes {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #ef4444;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .caso-v2-txt-antes {
+        font-size: 14px;
+        font-weight: 600;
+        color: #7f1d1d;
+        line-height: 1.4;
+      }
+      .caso-v2-ahora {
+        background: #f0fdf4;
+        padding: 20px;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .caso-v2-ico-ahora {
+        font-size: 28px;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .caso-v2-label-ahora {
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #16a34a;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .caso-v2-txt-ahora {
+        font-size: 14px;
+        font-weight: 600;
+        color: #14532d;
+        line-height: 1.4;
+      }
+
+      /* MÉTRICAS RÁPIDAS */
+      .metricas {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 2px;
+        background: var(--borde);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 16px;
+      }
+      .metrica {
+        background: #fff;
+        padding: 24px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.2s;
+      }
+      .metrica:hover { background: #f8faff; }
+      .metrica-ico { font-size: 26px; }
+      .metrica-titulo { font-size: 12px; font-weight: 700; color: var(--texto-gris); letter-spacing: 0.5px; }
+      .metrica-valor { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 600; color: var(--azul-acento); line-height: 1.2; }
+
+      /* TABLA VS */
+      .vs-tabla {
+        border: 1px solid var(--borde);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 16px;
+      }
+      .vs-tabla-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        background: #f9fafb;
+        border-bottom: 1px solid var(--borde);
+      }
+      .vs-th {
+        padding: 14px 20px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 2px;
+      }
+      .vs-th-tema { color: #9ca3af; }
+      .vs-th-ellos { color: #ef4444; }
+      .vs-th-nos { color: var(--azul-acento); }
+      .vs-fila {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-bottom: 1px solid var(--borde);
+      }
+      .vs-fila:last-child { border-bottom: none; }
+      .vs-fila:nth-child(even) { background: #fafafa; }
+      .vs-td {
+        padding: 14px 20px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .vs-td-tema { font-weight: 600; color: var(--texto-oscuro); }
+      .vs-td-ellos { color: #6b7280; }
+      .vs-td-nos { color: var(--texto-oscuro); font-weight: 500; }
+      .vs-ico-mal { color: #ef4444; font-size: 15px; flex-shrink: 0; }
+      .vs-ico-bien { color: #16a34a; font-size: 15px; flex-shrink: 0; }
+
+      /* INNOVACIÓN */
+      .inno-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--borde); border-radius: 16px; overflow: hidden; }
+      .inno-card { background: #fff; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; transition: background 0.2s; }
+      .inno-card:hover { background: #f8faff; }
+      .inno-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--azul-acento); }
+      .inno-card h3 { font-size: 18px; font-weight: 600; color: var(--texto-oscuro); line-height: 1.2; }
+      .inno-card h3 span { color: var(--azul-acento); }
+      .inno-card p { font-size: 13px; color: var(--texto-gris); line-height: 1.6; margin: 0; }
+      .inno-ico { font-size: 26px; margin-bottom: 2px; }
+
+      @media (max-width: 768px) {
+        .casos-v2 { grid-template-columns: 1fr; }
+        .metricas { grid-template-columns: repeat(2,1fr); }
+        .vs-tabla-header, .vs-fila { grid-template-columns: 1fr 1fr 1fr; }
+        .vs-td, .vs-th { padding: 10px 12px; font-size: 12px; }
+        .inno-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+
+    <!-- CASOS ANTES / AHORA -->
+    <div class="casos-v2">
+      <div class="caso-v2">
+        <div class="caso-v2-antes">
+          <div class="caso-v2-ico-antes">📦</div>
+          <div>
+            <span class="caso-v2-label-antes">❌ ANTES</span>
+            <p class="caso-v2-txt-antes">"Perdía dinero porque el producto se caducaba"</p>
+          </div>
+        </div>
+        <div class="caso-v2-ahora">
+          <div class="caso-v2-ico-ahora">⚡</div>
+          <div>
+            <span class="caso-v2-label-ahora">✅ AHORA CON KAPITAL</span>
+            <p class="caso-v2-txt-ahora">"Alertas automáticas de stock y vencimiento"</p>
+          </div>
+        </div>
+      </div>
+      <div class="caso-v2">
+        <div class="caso-v2-antes">
+          <div class="caso-v2-ico-antes">📞</div>
+          <div>
+            <span class="caso-v2-label-antes">❌ ANTES</span>
+            <p class="caso-v2-txt-antes">"Perdía ventas porque no sabía el stock"</p>
+          </div>
+        </div>
+        <div class="caso-v2-ahora">
+          <div class="caso-v2-ico-ahora">📱</div>
+          <div>
+            <span class="caso-v2-label-ahora">✅ AHORA CON KAPITAL</span>
+            <p class="caso-v2-txt-ahora">"Cotizo en 2 minutos desde el celular"</p>
+          </div>
+        </div>
+      </div>
+      <div class="caso-v2">
+        <div class="caso-v2-antes">
+          <div class="caso-v2-ico-antes">💸</div>
+          <div>
+            <span class="caso-v2-label-antes">❌ ANTES</span>
+            <p class="caso-v2-txt-antes">"Pagaba extra por cada actualización del SRI"</p>
+          </div>
+        </div>
+        <div class="caso-v2-ahora">
+          <div class="caso-v2-ico-ahora">🎯</div>
+          <div>
+            <span class="caso-v2-label-ahora">✅ AHORA CON KAPITAL</span>
+            <p class="caso-v2-txt-ahora">"Todo incluido. Sin cobros extras, sin excusas"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÉTRICAS RÁPIDAS -->
+    <div class="metricas">
+      <div class="metrica">
+        <span class="metrica-ico">⏱️</span>
+        <span class="metrica-titulo">COTIZACIONES</span>
+        <span class="metrica-valor">30 min → 2 min</span>
+      </div>
+      <div class="metrica">
+        <span class="metrica-ico">📦</span>
+        <span class="metrica-titulo">INVENTARIO</span>
+        <span class="metrica-valor">Stock en tiempo real</span>
+      </div>
+      <div class="metrica">
+        <span class="metrica-ico">💰</span>
+        <span class="metrica-titulo">ACTUALIZACIONES SRI</span>
+        <span class="metrica-valor">$0 extras</span>
+      </div>
+      <div class="metrica">
+        <span class="metrica-ico">📊</span>
+        <span class="metrica-titulo">ANÁLISIS DE DATOS</span>
+        <span class="metrica-valor">Power BI incluido</span>
+      </div>
+    </div>
+
+    <!-- TABLA VS COMPETENCIA -->
+    <div class="vs-tabla">
+      <div class="vs-tabla-header">
+        <span class="vs-th vs-th-tema"></span>
+        <span class="vs-th vs-th-ellos">❌ OTROS</span>
+        <span class="vs-th vs-th-nos">✅ KAPITAL</span>
+      </div>
+      <div class="vs-fila">
+        <div class="vs-td vs-td-tema">💳 Precio</div>
+        <div class="vs-td vs-td-ellos"><span class="vs-ico-mal">✕</span>$20 + cobros extras</div>
+        <div class="vs-td vs-td-nos"><span class="vs-ico-bien">✓</span>Todo incluido</div>
+      </div>
+      <div class="vs-fila">
+        <div class="vs-td vs-td-tema">🔄 SRI</div>
+        <div class="vs-td vs-td-ellos"><span class="vs-ico-mal">✕</span>Pagas cada actualización</div>
+        <div class="vs-td vs-td-nos"><span class="vs-ico-bien">✓</span>Actualizaciones gratis</div>
+      </div>
+      <div class="vs-fila">
+        <div class="vs-td vs-td-tema">⚙️ Adaptación</div>
+        <div class="vs-td vs-td-ellos"><span class="vs-ico-mal">✕</span>Sistema rígido</div>
+        <div class="vs-td vs-td-nos"><span class="vs-ico-bien">✓</span>Se adapta a tu empresa</div>
+      </div>
+      <div class="vs-fila">
+        <div class="vs-td vs-td-tema">📊 Reportes</div>
+        <div class="vs-td vs-td-ellos"><span class="vs-ico-mal">✕</span>Costo adicional</div>
+        <div class="vs-td vs-td-nos"><span class="vs-ico-bien">✓</span>Power BI incluido</div>
+      </div>
+      <div class="vs-fila">
+        <div class="vs-td vs-td-tema">🎓 Soporte</div>
+        <div class="vs-td vs-td-ellos"><span class="vs-ico-mal">✕</span>Cobran por capacitación</div>
+        <div class="vs-td vs-td-nos"><span class="vs-ico-bien">✓</span>Soporte ilimitado 24/7</div>
+      </div>
+    </div>
+
+    <!-- INNOVACIÓN -->
+    <div class="inno-grid">
+      <div class="inno-card">
+        <div class="inno-ico">🤖</div>
+        <span class="inno-tag">INTELIGENCIA ARTIFICIAL</span>
+        <h3>El sistema que <span>aprende</span> tu negocio</h3>
+        <p>Alertas inteligentes y predicciones basadas en tus propios datos.</p>
+      </div>
+      <div class="inno-card">
+        <div class="inno-ico">📊</div>
+        <span class="inno-tag">ANÁLISIS DE DATOS</span>
+        <h3>Power BI <span>integrado</span></h3>
+        <p>Tus datos en reportes visuales para tomar mejores decisiones.</p>
+      </div>
+      <div class="inno-card">
+        <div class="inno-ico">⚡</div>
+        <span class="inno-tag">INNOVACIÓN CONTINUA</span>
+        <h3>Siempre un paso <span>adelante</span></h3>
+        <p>Pioneros en actualizaciones. Tu sistema evoluciona sin costo extra.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MÓDULOS -->
+<style>
+  .modulos-wrap { max-width: 900px; margin: 0 auto; }
+
+  .modulos-tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .mtab {
+    padding: 9px 20px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--borde);
+    background: #fff;
+    color: var(--texto-gris);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .mtab:hover { border-color: var(--azul-acento); color: var(--azul-acento); }
+  .mtab.active { background: var(--azul-acento); border-color: var(--azul-acento); color: #fff; }
+
+  .modulo-panel { display: none; }
+  .modulo-panel.active { display: flex; justify-content: center; }
+
+  .modulo-info { max-width: 480px; width: 100%; }
+  .tab-hook {
+    font-size: 18px;
+    color: var(--texto-gris);
+    line-height: 1.6;
+    text-align: center;
+    padding: 24px 0 8px;
+  }
+  .tab-hook strong { color: var(--texto-oscuro); }
+
+  .modulo-info h3 { font-size: 22px; font-weight: 600; color: var(--texto-oscuro); margin-bottom: 12px; }
+  .modulo-info p { font-size: 14px; color: var(--texto-gris); line-height: 1.7; margin-bottom: 20px; }
+
+  .modulo-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .modulo-features li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; color: var(--texto-oscuro);
+  }
+  .modulo-features li::before {
+    content: '';
+    width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(74,158,222,0.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%234a9ede' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center;
+  }
+
+  .modulo-visual {
+    background: var(--fondo-claro);
+    border-radius: 14px;
+    padding: 28px;
+    border: 1px solid var(--borde);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .modulo-visual-ico {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: rgba(74,158,222,0.1);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modulo-visual-ico svg { width: 32px; height: 32px; stroke: var(--azul-acento); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .modulo-visual p { font-size: 13px; color: var(--texto-gris); max-width: 200px; line-height: 1.5; }
+
+  @media (max-width: 768px) {
+    .modulo-panel.active { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section id="modulos" class="section-center bg-gris">
+  <span class="tag">LO QUE INCLUYE EL SISTEMA</span>
+  <h2>Un sistema. <span style="color:var(--azul-acento)">Cero excusas para no crecer.</span></h2>
+
+  <div class="modulos-wrap">
+    <div class="modulos-tabs">
+      <button class="mtab active" onclick="showTab('finanzas', this)">Finanzas</button>
+      <button class="mtab" onclick="showTab('ventas', this)">Ventas y clientes</button>
+      <button class="mtab" onclick="showTab('inventario', this)">Inventario</button>
+      <button class="mtab" onclick="showTab('rrhh', this)">Personas</button>
+      <button class="mtab" onclick="showTab('operaciones', this)">Operaciones</button>
+    </div>
+
+    <div id="tab-finanzas" class="modulo-panel active"><div class="modulo-info"><p class="tab-hook">Factura, cobra y cierra mes — <strong>sin tocar una calculadora.</strong></p></div></div>
+    <div id="tab-ventas" class="modulo-panel"><div class="modulo-info"><p class="tab-hook">De la cotización al cobro en un solo lugar. <strong>Tu cliente siempre presente.</strong></p></div></div>
+    <div id="tab-inventario" class="modulo-panel"><div class="modulo-info"><p class="tab-hook">Stock en tiempo real. <strong>Nunca más quedarte sin producto.</strong></p></div></div>
+    <div id="tab-rrhh" class="modulo-panel"><div class="modulo-info"><p class="tab-hook">Nómina, asistencia y IESS. <strong>Todo en minutos, sin errores.</strong></p></div></div>
+    <div id="tab-operaciones" class="modulo-panel"><div class="modulo-info"><p class="tab-hook">Producción, talleres y servicios. <strong>Control total de inicio a fin.</strong></p></div></div>
+  </div>
+</section>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.modulo-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mtab').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+<!-- POWER BI -->
+<style>
+  .pbi-wrap { max-width: 1000px; margin: 0 auto; }
+  .pbi-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #f0f4ff; border: 1px solid #c7d6f5;
+    border-radius: 24px; padding: 6px 16px;
+    font-size: 12px; font-weight: 600; color: #2563eb;
+    margin-bottom: 20px;
+  }
+  .pbi-badge svg { width: 16px; height: 16px; fill: #2563eb; }
+
+  .pbi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .pbi-text h2 { text-align: left; font-size: 28px; margin-bottom: 14px; }
+  .pbi-text p { font-size: 14px; color: var(--texto-gris); line-height: 1.7; margin-bottom: 24px; text-align: left; }
+
+  .pbi-pills {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
+  }
+
+  .pbi-pill {
+    background: var(--fondo-claro);
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--texto-oscuro);
+  }
+
+  .pbi-screen {
+    background: #0d1b3e;
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .pbi-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .pbi-topbar-logo {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; color: #f59e0b; letter-spacing: 0.5px;
+  }
+
+  .pbi-topbar-logo span {
+    width: 20px; height: 20px;
+    background: #f59e0b;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; color: #fff;
+  }
+
+  .pbi-topbar-dots { display: flex; gap: 4px; }
+  .pbi-topbar-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); }
+
+  .pbi-kpis {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px;
+  }
+
+  .pbi-kpi {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px; padding: 10px 12px;
+  }
+
+  .pbi-kpi-val { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 600; color: #f59e0b; display: block; }
+  .pbi-kpi-lbl { font-size: 9px; color: #5a7499; margin-top: 2px; display: block; }
+  .pbi-kpi-delta { font-size: 9px; color: #22c55e; margin-top: 1px; display: block; }
+
+  .pbi-charts { display: grid; grid-template-columns: 1.5fr 1fr; gap: 8px; }
+
+  .pbi-chart-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 8px; padding: 12px;
+  }
+
+  .pbi-chart-title { font-size: 9px; color: #3a5270; margin-bottom: 10px; display: block; }
+
+  .pbi-bar-group { display: flex; flex-direction: column; gap: 5px; }
+  .pbi-bar-item { display: flex; align-items: center; gap: 6px; }
+  .pbi-bar-lbl { font-size: 8px; color: #5a7499; width: 52px; flex-shrink: 0; }
+  .pbi-bar-tr { flex: 1; height: 6px; background: rgba(255,255,255,0.04); border-radius: 3px; overflow: hidden; }
+  .pbi-bar-f { height: 100%; border-radius: 3px; }
+
+  .pbi-donut-wrap { display: flex; align-items: center; justify-content: center; height: 80px; }
+  .pbi-legend { display: flex; flex-direction: column; gap: 5px; }
+  .pbi-leg-item { display: flex; align-items: center; gap: 5px; font-size: 8px; color: #5a7499; }
+  .pbi-leg-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+  @media (max-width: 768px) {
+    .pbi-grid { grid-template-columns: 1fr; }
+    .pbi-charts { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section>
+  <div class="pbi-wrap">
+    <div class="pbi-grid">
+      <div class="pbi-text">
+        <div class="pbi-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21H3V3h9v2H5v14h14v-7h2v9zM10 14l8-8m0 0V3m0 3h-3"/></svg>
+          Integrado con Power BI
+        </div>
+        <span class="tag">ANÁLISIS DE DATOS AVANZADO</span>
+        <h2>Tus datos de Kapital,<br>visualizados en Power BI</h2>
+        <p>Sistema Kapital se conecta directamente con Power BI. Toda la información de tu empresa se transforma en reportes visuales, gráficos interactivos y dashboards ejecutivos para tomar mejores decisiones.</p>
+        <div class="pbi-pills">
+          <span class="pbi-pill">Ventas por período</span>
+          <span class="pbi-pill">Rentabilidad por producto</span>
+          <span class="pbi-pill">Indicadores financieros</span>
+          <span class="pbi-pill">Análisis de clientes</span>
+          <span class="pbi-pill">Reportes gerenciales</span>
+        </div>
+        <a href="#demo" class="btn-primary" style="display:inline-block;text-decoration:none;">Ver cómo funciona →</a>
+      </div>
+
+      <div>
+        <div class="pbi-screen">
+          <div class="pbi-topbar">
+            <div class="pbi-topbar-logo">
+              <span>⚡</span> Power BI · Sistema Kapital
+            </div>
+            <div class="pbi-topbar-dots">
+              <div class="pbi-topbar-dot"></div>
+              <div class="pbi-topbar-dot"></div>
+              <div class="pbi-topbar-dot"></div>
+            </div>
+          </div>
+
+          <div class="pbi-kpis">
+            <div class="pbi-kpi">
+              <span class="pbi-kpi-val">$124k</span>
+              <span class="pbi-kpi-lbl">Ventas mes</span>
+              <span class="pbi-kpi-delta">▲ 18% vs anterior</span>
+            </div>
+            <div class="pbi-kpi">
+              <span class="pbi-kpi-val">34%</span>
+              <span class="pbi-kpi-lbl">Margen bruto</span>
+              <span class="pbi-kpi-delta">▲ 2pts</span>
+            </div>
+            <div class="pbi-kpi">
+              <span class="pbi-kpi-val">312</span>
+              <span class="pbi-kpi-lbl">Clientes activos</span>
+              <span class="pbi-kpi-delta">▲ 24 nuevos</span>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div class="pbi-chart-box">
+              <span class="pbi-chart-title">VENTAS POR SECTOR</span>
+              <div style="display:flex;flex-direction:column;gap:7px;">
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <span style="font-size:8px;color:#5a7499;width:52px;flex-shrink:0;">Comercial</span>
+                  <div style="flex:1;height:14px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden;">
+                    <div style="width:78%;height:100%;background:#f59e0b;border-radius:3px;"></div>
+                  </div>
+                  <span style="font-size:8px;color:#f59e0b;width:26px;text-align:right;">$48k</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <span style="font-size:8px;color:#5a7499;width:52px;flex-shrink:0;">Salud</span>
+                  <div style="flex:1;height:14px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden;">
+                    <div style="width:54%;height:100%;background:#4a9ede;border-radius:3px;"></div>
+                  </div>
+                  <span style="font-size:8px;color:#4a9ede;width:26px;text-align:right;">$33k</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <span style="font-size:8px;color:#5a7499;width:52px;flex-shrink:0;">Educativo</span>
+                  <div style="flex:1;height:14px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden;">
+                    <div style="width:38%;height:100%;background:#22c55e;border-radius:3px;"></div>
+                  </div>
+                  <span style="font-size:8px;color:#22c55e;width:26px;text-align:right;">$24k</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;">
+                  <span style="font-size:8px;color:#5a7499;width:52px;flex-shrink:0;">Servicios</span>
+                  <div style="flex:1;height:14px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden;">
+                    <div style="width:25%;height:100%;background:#a78bfa;border-radius:3px;"></div>
+                  </div>
+                  <span style="font-size:8px;color:#a78bfa;width:26px;text-align:right;">$19k</span>
+                </div>
+              </div>
+            </div>
+            <div class="pbi-chart-box">
+              <span class="pbi-chart-title">UTILIDAD POR PRODUCTO</span>
+              <div style="display:flex;align-items:flex-end;justify-content:center;gap:6px;height:68px;padding-top:4px;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                  <span style="font-size:7px;color:#f59e0b;">42%</span>
+                  <div style="width:100%;height:50px;background:#f59e0b;border-radius:3px 3px 0 0;"></div>
+                  <span style="font-size:7px;color:#5a7499;">A</span>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                  <span style="font-size:7px;color:#4a9ede;">31%</span>
+                  <div style="width:100%;height:36px;background:#4a9ede;border-radius:3px 3px 0 0;"></div>
+                  <span style="font-size:7px;color:#5a7499;">B</span>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                  <span style="font-size:7px;color:#22c55e;">27%</span>
+                  <div style="width:100%;height:30px;background:#22c55e;border-radius:3px 3px 0 0;"></div>
+                  <span style="font-size:7px;color:#5a7499;">C</span>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                  <span style="font-size:7px;color:#a78bfa;">19%</span>
+                  <div style="width:100%;height:22px;background:#a78bfa;border-radius:3px 3px 0 0;"></div>
+                  <span style="font-size:7px;color:#5a7499;">D</span>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:2px;flex:1;">
+                  <span style="font-size:7px;color:#f472b6;">14%</span>
+                  <div style="width:100%;height:16px;background:#f472b6;border-radius:3px 3px 0 0;"></div>
+                  <span style="font-size:7px;color:#5a7499;">E</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p style="font-size:9px;color:#2a3d5a;text-align:center;margin-top:12px;">Vista ilustrativa · Datos reales de tu empresa en Power BI</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTORES -->
+<section id="sectores" class="section-center bg-gris">
+  <span class="tag">SECTORES QUE ATENDEMOS</span>
+  <h2>Una solución para cada industria</h2>
+  <p class="sub">Sistema Kapital se adapta completamente a tu sector. Sin configuraciones genéricas.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto;">
+    <div class="sector-card" style="flex-direction:column;text-align:center;padding:28px 20px;">
+      <div class="sector-ico" style="margin:0 auto 14px;width:52px;height:52px;">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h4 style="font-size:15px;font-weight:600;color:var(--texto-oscuro);margin-bottom:6px;">Comercial</h4>
+      <p style="font-size:12px;color:var(--texto-gris);">Distribuidoras, tiendas, restaurantes, talleres</p>
+    </div>
+    <div class="sector-card" style="flex-direction:column;text-align:center;padding:28px 20px;">
+      <div class="sector-ico" style="margin:0 auto 14px;width:52px;height:52px;">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h4 style="font-size:15px;font-weight:600;color:var(--texto-oscuro);margin-bottom:6px;">Salud</h4>
+      <p style="font-size:12px;color:var(--texto-gris);">Clínicas, consultorios, veterinarias, laboratorios</p>
+    </div>
+    <div class="sector-card" style="flex-direction:column;text-align:center;padding:28px 20px;">
+      <div class="sector-ico" style="margin:0 auto 14px;width:52px;height:52px;">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <h4 style="font-size:15px;font-weight:600;color:var(--texto-oscuro);margin-bottom:6px;">Educativo</h4>
+      <p style="font-size:12px;color:var(--texto-gris);">Colegios, institutos, academias, centros de capacitación</p>
+    </div>
+    <div class="sector-card" style="flex-direction:column;text-align:center;padding:28px 20px;">
+      <div class="sector-ico" style="margin:0 auto 14px;width:52px;height:52px;">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <h4 style="font-size:15px;font-weight:600;color:var(--texto-oscuro);margin-bottom:6px;">Servicios</h4>
+      <p style="font-size:12px;color:var(--texto-gris);">Transporte, producción, funerarias, empresas de servicios</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<style>
+  .testimonios-wrap { max-width: 900px; margin: 0 auto; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .testi-card {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .testi-stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; }
+  .testi-quote {
+    font-size: 14px;
+    color: var(--texto-oscuro);
+    line-height: 1.65;
+    flex: 1;
+  }
+  .testi-quote strong { color: var(--azul-acento); }
+  .testi-autor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid var(--borde);
+    padding-top: 14px;
+  }
+  .testi-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(74,158,222,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; color: var(--azul-acento);
+    flex-shrink: 0;
+  }
+  .testi-nombre { font-size: 13px; font-weight: 600; color: var(--texto-oscuro); }
+  .testi-empresa { font-size: 11px; color: var(--texto-gris); }
+  @media (max-width: 768px) { .testi-grid { grid-template-columns: 1fr; } }
+</style>
+
+<section class="section-center bg-gris">
+  <div class="testimonios-wrap">
+    <span class="tag">LO QUE DICEN NUESTROS CLIENTES</span>
+    <h2>Más de 1,250 empresas ya lo viven</h2>
+    <p class="sub">Resultados reales de empresas reales en Ecuador.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Antes pagábamos extra por cada actualización del SRI. Con Kapital <strong>todo está incluido</strong> y nunca hemos tenido problemas de facturación.</p>
+        <div class="testi-autor">
+          <div class="testi-avatar">RC</div>
+          <div><div class="testi-nombre">Roberto C.</div><div class="testi-empresa">Distribuidora Comercial · Quito</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">El sistema <strong>se adaptó a nuestra clínica</strong> desde el primer día. La historia clínica, citas y facturación en un solo lugar.</p>
+        <div class="testi-autor">
+          <div class="testi-avatar">AM</div>
+          <div><div class="testi-nombre">Dra. Ana M.</div><div class="testi-empresa">Centro Médico · Guayaquil</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">Los reportes en Power BI nos cambiaron la forma de tomar decisiones. <strong>Ahora vemos el negocio en tiempo real.</strong></p>
+        <div class="testi-autor">
+          <div class="testi-avatar">LP</div>
+          <div><div class="testi-nombre">Luis P.</div><div class="testi-empresa">Empresa de Producción · Ambato</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="form-section" id="demo">
+  <h2>Agenda tu demo gratuita</h2>
+  <p>Elige el día y hora que más te convenga. Te mostramos el sistema adaptado a tu negocio.</p>
+  <div class="form-box">
+    <div class="form-row">
+      <label>Nombre completo</label>
+      <input type="text" placeholder="Ej. Carlos Mendoza" />
+    </div>
+    <div class="form-row">
+      <label>Teléfono / WhatsApp</label>
+      <input type="tel" placeholder="+593 09..." />
+    </div>
+    <div class="form-row">
+      <label>Tipo de negocio</label>
+      <select>
+        <option value="">Selecciona tu sector</option>
+        <option>Comercial / Distribuidora</option>
+        <option>Clínica / Centro médico</option>
+        <option>Colegio / Institución educativa</option>
+        <option>Taller mecánico</option>
+        <option>Veterinaria</option>
+        <option>Empresa de transporte</option>
+        <option>Producción / Manufactura</option>
+        <option>Restaurante</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label>Elige el día para tu demo</label>
+      <div id="calendario" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:16px;"></div>
+    </div>
+    <div class="form-row" id="horarios-wrap" style="display:none;">
+      <label>Elige la hora</label>
+      <div id="horarios" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+    </div>
+    <button class="form-submit" id="btn-demo">Confirmar demo →</button>
+    <span class="form-note">Sin compromiso · Te confirmamos en minutos<br>contacto@kapitalcompany.com · +593 098 4000 444</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  const cal = document.getElementById('calendario');
+  const horariosWrap = document.getElementById('horarios-wrap');
+  const horariosDiv = document.getElementById('horarios');
+  const horas = ['09:00','10:00','11:00','14:00','15:00','16:00','17:00'];
+  let selDia = null, selHora = null;
+
+  const hoy = new Date();
+  let mes = hoy.getMonth(), anio = hoy.getFullYear();
+
+  const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  function render(){
+    const primerDia = new Date(anio, mes, 1).getDay();
+    const diasMes = new Date(anio, mes+1, 0).getDate();
+    const offset = primerDia === 0 ? 6 : primerDia - 1;
+
+    let html = `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+      <button onclick="cambiarMes(-1)" style="background:none;border:none;color:#6a84a8;font-size:18px;cursor:pointer;padding:4px 8px;">‹</button>
+      <span style="font-size:13px;font-weight:600;color:#fff;">${meses[mes]} ${anio}</span>
+      <button onclick="cambiarMes(1)" style="background:none;border:none;color:#6a84a8;font-size:18px;cursor:pointer;padding:4px 8px;">›</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;">
+      ${['L','M','X','J','V','S','D'].map(d=>`<span style="font-size:9px;color:#3a5270;padding:4px 0;">${d}</span>`).join('')}`;
+
+    for(let i=0;i<offset;i++) html += `<span></span>`;
+
+    for(let d=1;d<=diasMes;d++){
+      const fecha = new Date(anio, mes, d);
+      const pasado = fecha < new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+      const finde = fecha.getDay()===0 || fecha.getDay()===6;
+      const key = `${anio}-${mes}-${d}`;
+      const activo = selDia === key;
+      const color = activo ? '#4a9ede' : (pasado||finde ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.08)');
+      const textColor = activo ? '#fff' : (pasado||finde ? '#2a3d5a' : '#8aa4c8');
+      const cursor = (!pasado && !finde) ? 'pointer' : 'default';
+      html += `<span onclick="${(!pasado&&!finde)?`elegirDia('${key}',${d})`:''}()" style="padding:6px 2px;border-radius:6px;font-size:11px;background:${color};color:${textColor};cursor:${cursor};transition:background 0.15s;">${d}</span>`;
+    }
+
+    html += `</div>`;
+    cal.innerHTML = html;
+  }
+
+  window.cambiarMes = function(dir){
+    mes += dir;
+    if(mes > 11){ mes=0; anio++; }
+    if(mes < 0){ mes=11; anio--; }
+    render();
+  };
+
+  window.elegirDia = function(key, d){
+    selDia = key; selHora = null;
+    render();
+    horariosWrap.style.display = 'block';
+    horariosDiv.innerHTML = horas.map(h =>
+      `<button onclick="elegirHora('${h}',this)" style="padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:#8aa4c8;font-size:13px;cursor:pointer;transition:all 0.15s;">${h}</button>`
+    ).join('');
+  };
+
+  window.elegirHora = function(h, btn){
+    selHora = h;
+    document.querySelectorAll('#horarios button').forEach(b=>{
+      b.style.background='rgba(255,255,255,0.05)';
+      b.style.color='#8aa4c8';
+      b.style.borderColor='rgba(255,255,255,0.15)';
+    });
+    btn.style.background='#4a9ede';
+    btn.style.color='#fff';
+    btn.style.borderColor='#4a9ede';
+  };
+
+  document.getElementById('btn-demo').addEventListener('click', function(){
+    if(!selDia || !selHora){
+      alert('Por favor elige un día y hora para tu demo.');
+      return;
+    }
+    const [a,m,d] = selDia.split('-');
+    const msg = encodeURIComponent(`Hola, quiero agendar una demo de Sistema Kapital el ${d} de ${meses[parseInt(m)]} a las ${selHora}.`);
+    window.open(`https://wa.me/593984000444?text=${msg}`, '_blank');
+  });
+
+  render();
+})();
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 Kapital Company · Quito, Ecuador · contacto@kapitalcompany.com · +593 098 4000 444</p>
+  <div class="footer-links">
+    <a href="https://www.facebook.com/oficialkapitalcompany" target="_blank">Facebook</a>
+    <a href="https://instagram.com/kapital_sistema_empresarial" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@kapital_sistema" target="_blank">TikTok</a>
+    <a href="https://kapitalcompany.com" target="_blank">Sitio web</a>
+  </div>
+</footer>
+
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a href="https://wa.me/593984000444?text=Hola,%20vi%20su%20landing%20page%20y%20quiero%20una%20demo%20de%20Sistema%20Kapital" class="wa-btn" target="_blank" title="Contáctanos por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
